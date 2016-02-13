@@ -1,4 +1,4 @@
-package receiver;
+package hello.receiver;
 
 import java.io.File;
 
