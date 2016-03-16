@@ -26,6 +26,9 @@ import org.apache.camel.spring.boot.FatWarInitializer;
  * <br/>
  * This class turn the FatJar into FatWar.<br/>
  * <br/>
+ * 
+ * 
+ * 
  * */
 public class MySpringBootRouterWarInitializer extends FatWarInitializer {
 
