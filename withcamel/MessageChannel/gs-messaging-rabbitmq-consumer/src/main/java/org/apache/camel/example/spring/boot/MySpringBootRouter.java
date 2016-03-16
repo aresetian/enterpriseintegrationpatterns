@@ -18,29 +18,16 @@ package org.apache.camel.example.spring.boot;
 
 import org.apache.camel.spring.boot.FatJarRouter;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
-//example  http://examples.javacodegeeks.com/enterprise-java/apache-camel/apache-camel-timer-example/
 @SpringBootApplication
 public class MySpringBootRouter extends FatJarRouter {
     
     
     @Override
     public void configure() {
-    	//The timer component doesn’t receive any message, it only generates messages so the inbound message of the generated exchange is null.
-    	//Thus the below statement returns null.
-    	//exchange.getIn().getBody();
-        from("timer:trigger?repeatCount=1") 
-                .transform().simple("ref:myBean")
-                .to("rabbitmq://185.14.186.49:5672/spring-boot");
-        
-        
-      //  simple language for evaluating Expression and Predicate without requiring any new dependencies or knowledge of XPath
+         from("rabbitmq://185.14.186.49:5672/spring-boot-exchange?queue=spring-boot") 
+        .transform(simple("${body}"))
+        .to("stream:out");
     }
-
-    @Bean
-    String myBean() {
-        return "I'm Spring bean!";
-    }
-
+   
 }
