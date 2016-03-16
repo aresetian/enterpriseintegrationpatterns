@@ -19,6 +19,20 @@ package org.apache.camel.example.spring.boot;
 import org.apache.camel.spring.boot.FatJarRouter;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * 
+ * This class follow the comments of the item <h1>Fat jars and fat wars</h1> find it on the reading<br/>
+ * http://camel.apache.org/spring-boot.html.<br/>
+ * 
+ * 
+ * At the moment to execute <h1>mvn spring-boot:run</h1> only this class is execute {@link MySpringBootRouterWarInitializer} is only <br/>
+ * to create a war file.<br/>
+ * 
+ * Recommendation reading
+ * 
+ * http://camel.apache.org/spring-boot.html : explain how spring-boot works with camel.<br/>
+ * http://examples.javacodegeeks.com/enterprise-java/apache-camel/apache-camel-timer-example/  : the timer code was taken from this link.<br/>
+ * */
 @SpringBootApplication
 public class MySpringBootRouter extends FatJarRouter {
     
